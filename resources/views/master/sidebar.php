@@ -21,18 +21,80 @@
   <section class="sidebar">
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
-      <li class="treeview">
+      <li class="<?php if($active=='pengecekan') echo 'active' ?>">
         <a href="#">
-          <i class="fa fa-pie-chart"></i>
-          <span>Charts</span>
+          <i class="fa fa-list-ul"></i> <span>Pengecekan Barang</span>
+        </a>
+      </li>
+      <li class="<?php if($active=='konslutasi') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-sticky-note-o"></i> <span>Konsultasi</span>
+        </a>
+      </li>
+      <li class="<?php if($active=='booking') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-book"></i> <span>Booking Service</span>
+        </a>
+      </li>
+      <li class="treeview <?php if($active=='spare-part') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-cogs"></i>
+          <span>Spare Part</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-          <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-          <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-          <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="spare-part/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
+      </li>
+      <li class="treeview <?php if($active=='transaksi') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-exchange"></i>
+          <span>Transaksi</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+        </ul>
+      </li>
+      <li class="treeview <?php if($active=='service') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-wrench"></i>
+          <span>Service</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+        </ul>
+      </li>
+      <li class="treeview <?php if($active=='konsumen') echo 'konsumen' ?>">
+        <a href="#">
+          <i class="fa fa-users"></i>
+          <span>Konsumen</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+        </ul>
+      </li>
+      <li class="treeview <?php if($active=='pegawai') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-male"></i>
+          <span>Pegawai</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+        </ul>
+      </li>
+      <li class="<?php if($active=='report') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-list-alt"></i> <span>Report Bulanan</span>
+        </a>
       </li>
     </ul>
   </section>

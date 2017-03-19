@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Auto +</title>
     @include('master.head')
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper" style="background-color: #ecf0f5 !important;">
 
-      @include('master.sidebar');
+      @include('master.sidebar')
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Dashboard
-          </h1>
-        </section>
 
         <!-- Main content -->
         <section class="content">
-
+          @yield('content')
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
@@ -30,7 +24,5 @@
         <strong>5114100105 - 5114100114 - 5114100166</strong>
       </footer>
     </div><!-- ./wrapper -->
-
-    @include('master.script');
   </body>
 </html>

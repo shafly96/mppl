@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('master/master');
+Route::group(['prefix' => 'spare-part'], function () {
+    Route::get('tabel', function ()    {
+        return view('pages.spare-part.tabel', ['active' => 'spare-part', 'active2' => 'tabel']);
+    });
 });
