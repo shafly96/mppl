@@ -11,8 +11,51 @@
 |
 */
 
+Route::get('/', function () {
+	return view('pages.index', ['active' => '', 'active2' => '']);
+});
+
 Route::group(['prefix' => 'spare-part'], function () {
     Route::get('tabel', function ()    {
         return view('pages.spare-part.tabel', ['active' => 'spare-part', 'active2' => 'tabel']);
+    });
+    Route::get('form', function ()    {
+        return view('pages.spare-part.form', ['active' => 'spare-part', 'active2' => 'form']);
+    });
+});
+
+Route::group(['prefix' => 'transaksi'], function () {
+    Route::get('tabel', function ()    {
+        return view('pages.transaksi.tabel', ['active' => 'transaksi', 'active2' => 'tabel']);
+    });
+    Route::get('form', function ()    {
+        return view('pages.transaksi.form', ['active' => 'transaksi', 'active2' => 'form']);
+    });
+});
+
+Route::group(['prefix' => 'service'], function () {
+    Route::get('tabel', function ()    {
+        return view('pages.service.tabel', ['active' => 'service', 'active2' => 'tabel']);
+    });
+    Route::get('form', function ()    {
+        return view('pages.service.form', ['active' => 'service', 'active2' => 'form']);
+    });
+});
+
+Route::group(['prefix' => 'konsumen'], function () {
+    Route::get('tabel', function ()    {
+        return view('pages.konsumen.tabel', ['active' => 'konsumen', 'active2' => 'tabel']);
+    });
+    Route::get('form', function ()    {
+        return view('pages.konsumen.form', ['active' => 'konsumen', 'active2' => 'form']);
+    });
+});
+
+Route::group(['prefix' => 'pegawai'], function () {
+    Route::get('tabel', function ()    {
+        return view('pages.pegawai.tabel', ['active' => 'pegawai', 'active2' => 'tabel']);
+    });
+    Route::get('form', function ()    {
+        return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form']);
     });
 });

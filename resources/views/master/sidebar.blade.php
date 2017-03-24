@@ -43,8 +43,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="spare-part/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/spare-part/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/spare-part/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
       <li class="treeview <?php if($active=='transaksi') echo 'active' ?>">
@@ -54,8 +54,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/transaksi/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/transaksi/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
       <li class="treeview <?php if($active=='service') echo 'active' ?>">
@@ -65,19 +65,19 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/service/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/service/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
-      <li class="treeview <?php if($active=='konsumen') echo 'konsumen' ?>">
+      <li class="treeview <?php if($active=='konsumen') echo 'active' ?>">
         <a href="#">
           <i class="fa fa-users"></i>
           <span>Konsumen</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/konsumen/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/konsumen/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
       <li class="treeview <?php if($active=='pegawai') echo 'active' ?>">
@@ -87,8 +87,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/pegawai/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/pegawai/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
       <li class="<?php if($active=='report') echo 'active' ?>">
