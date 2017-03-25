@@ -16,13 +16,15 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'spare-part'], function () {
-    Route::get('tabel', function ()    {
-        return view('pages.spare-part.tabel', ['active' => 'spare-part', 'active2' => 'tabel']);
-    });
-    Route::get('form', function ()    {
-        return view('pages.spare-part.form', ['active' => 'spare-part', 'active2' => 'form']);
-    });
+    Route::get('tabel', 'sparepartController@ShowSparepart');
+    Route::get('insert', 'sparepartController@ShowInsertSparepart');
+		Route::post('insert', 'sparepartController@InsertSparepart');
+		Route::post('update/{id}','sparepartController@UpdateSparepart');
+		Route::get('update/{id}', 'sparepartController@ShowUpdateSparepart');
+		Route::get('delete/{id}','sparepartController@DeleteSparepart');
+
 });
+
 
 Route::group(['prefix' => 'transaksi'], function () {
     Route::get('tabel', function ()    {

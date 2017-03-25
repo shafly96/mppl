@@ -44,7 +44,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/spare-part/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
-          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/spare-part/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/spare-part/insert"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
       <li class="treeview <?php if($active=='transaksi') echo 'active' ?>">

@@ -5,32 +5,52 @@
 <div class="row">
 	<!-- left column -->
 	<div class="col-xs-12">
+		@if (session('failed'))
+		    <div class="alert alert-error">
+		        {{ session('failed') }}
+		    </div>
+		@endif
+		@if (session('success'))
+		    <div class="alert alert-success">
+		        {{ session('success') }}
+		    </div>
+		@endif
 		<!-- general form elements -->
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Form Spare Part</h3>
-			</div><!-- /.box-header -->
+			</div><!-- box-header -->
 			<!-- form start -->
-			<form role="form">
+			<form action="{{url('/')}}/spare-part/@if(isset($sparepart))update/{{$sparepart->ID_Sparepart}} @else
+			insert @endif" method="POST" role="form" enctype="multipart/form-data">
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Email address</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+						<label>Nama Sparepart</label>
+						<input type="text" name="nama_sparepart"class="form-control" placeholder="Masukan Nama Sparepart"
+						@if(isset($sparepart))value={{$sparepart->Nama_Sparepart}}@endif>
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						<label>Kendaraan Sparepart</label>
+						<input type="text" name="kendaraan_sparepart"class="form-control" placeholder="Masukan Nama Kendaraan"
+						@if(isset($sparepart))value={{$sparepart->Kendaraan_Sparepart}}@endif>
+					</div>
+					<div class="form-group">
+						<label>Harga Sparepart</label>
+						<input type="number" name="harga_sparepart"class="form-control" placeholder="Masukan Harga Sparepart"
+						@if(isset($sparepart))value={{$sparepart->Harga_Sparepart}}@endif>
+					</div>
+					<div class="form-group">
+						<label>Stok Sparepart</label>
+						<input type="Number" name="stok_sparepart"class="form-control" placeholder="Masukan stok Sparepart"
+						@if(isset($sparepart))value={{$sparepart->Stok_Sparepart}}@endif>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputFile">File input</label>
-						<input type="file" id="exampleInputFile">
+						<input type="file" name="avatar">
 						<p class="help-block">Example block-level help text here.</p>
 					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox"> Check me out
-						</label>
-					</div>
+
 				</div><!-- /.box-body -->
 
 				<div class="box-footer">

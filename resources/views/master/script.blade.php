@@ -19,3 +19,4 @@
     <!-- Datatables -->
     <script src="{{url('')}}/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="{{url('')}}/plugins/datatables/jquery.dataTables.js"></script>
+    

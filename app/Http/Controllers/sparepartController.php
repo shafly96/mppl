@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Http\Request;
+use App\sparepart;
+use DB, Redirect, Validator, View, Auth;
+
+class sparepartController extends Controller
+{
+  public function ShowInsertSparepart(){
+    $data['active'] = 'spare-part';
+    $data['active2'] = 'form';
+    return view('pages.spare-part.form', $data);
+  }
+  public function ShowSparepart(){
+    $data['active'] = 'spare-part';
+    $data['active2'] = 'tabel';
+    $data['sparepart'] = sparepart::get();
+    return view('pages.spare-part.tabel',$data);
+  }
+  public function ShowUpdateSparepart($id)
+  {
+      $data['active'] = 'spare-part';
+      $data['active2'] = 'form';
+      $data['sparepart'] = sparepart::find($id);
+      return view('pages.spare-part.form',$data);
+  }
+  public function InsertSparepart(Request $request){
+
+
+
+    if($this->verifyData($request))
+    {
+      if (NULL != $request->file('avatar'))
+      {
+        $file = $request->file('avatar');
+        $file->storeAs('spareparts/',$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
+
+      }
+      $insert = new sparepart;
+      $insert->Nama_Sparepart = $request->nama_sparepart;
+      $insert->Kendaraan_Sparepart = $request->kendaraan_sparepart;
+      $insert->Harga_Sparepart = $request->harga_sparepart;
+      $insert->Stok_Sparepart = $request->stok_sparepart;
+      $insert->save();
+      return redirect('spare-part/insert')->with('success','Data telah dimasukkan');
+    }
+    else {
+      return redirect('spare-part/insert')->with('failed','Input Invalid - Data Sudah ada');
+    }
+  //  dd($data->nama_sparepart);
+
+  }
+  public function UpdateSparepart(Request $request, $id)
+  {
+      $update = sparepart::find($id);
+
+
+  //  dd($request->nama_sparepart);
+        if (NULL != $request->file('avatar'))
+        {
+          $file = $request->file('avatar');
+          $file->storeAs('spareparts/',$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
+        }
+        else {
+            Storage::move('spareparts/'.$update->Nama_Sparepart.$update->Kendaraan_Sparepart.'.jpg','spareparts/'.$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
+        }
+
+        $update->Nama_Sparepart = $request->nama_sparepart;
+        $update->Kendaraan_Sparepart = $request->kendaraan_sparepart;
+        $update->Harga_Sparepart = $request ->harga_sparepart;
+        $update->Stok_Sparepart = $request->stok_sparepart;
+        $update->save();
+        return redirect('spare-part/update/'.$id)->with('success','Data telah diubah');
+
+
+  }
+  public function DeleteSparepart($id)
+  {
+    $delete = sparepart::find($id);
+    Storage::delete('spareparts/'.$delete->Nama_Sparepart.$delete->Kendaraan_Sparepart.'.jpg');
+  //  dd($wow);
+    $delete->delete();
+    return redirect('spare-part/tabel')->with('success','Data Telah dihapus');
+  }
+
+  private function verifyData($verifyData){
+    //dd($verifyData->kendaraan_sparepart);
+    $ver = sparepart::where([
+      ['Nama_Sparepart', '=',$verifyData->nama_sparepart],
+      ['Kendaraan_Sparepart','=',$verifyData->kendaraan_sparepart]])->get();
+      //dd($ver->count());
+      // dd($ver['sparepart']->nama_sparepart);
+    if ($ver->count()){
+      return False;
+    }
+    else{
+      return True;
+    }
+  }
+}
