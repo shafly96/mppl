@@ -6,35 +6,35 @@
 	<!-- left column -->
 	<div class="col-xs-12">
 		<!-- general form elements -->
+		@if($sukses==1)
+		<div class="alert alert-success">
+			Data Telah Dimasukan
+		</div>
+		@endif
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Form Konsumen</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form">
+			<form role="form" method="post" action="store">
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Email address</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+						<label for="exampleInputEmail1">Nama Konsumen</label>
+						<input type="text" class="form-control" name="nama" placeholder="Nama Konsumen">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						<label for="exampleInputPassword1">No Telp Konsumen</label>
+						<input type="text" class="form-control" name="telp" placeholder="No Telp Konsumen">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputFile">File input</label>
-						<input type="file" id="exampleInputFile">
-						<p class="help-block">Example block-level help text here.</p>
+						<label for="exampleInputPassword1">Alamat Konsumen</label>
+						<input type="text" class="form-control" name="alamat" placeholder="Alamat Konsumen">
 					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox"> Check me out
-						</label>
-					</div>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				</div><!-- /.box-body -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary" id="simpan">Simpan</button>
 				</div>
 			</form>
 		</div><!-- /.box -->
