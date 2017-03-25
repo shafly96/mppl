@@ -19,3 +19,7 @@
     <!-- Datatables -->
     <script src="{{url('')}}/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="{{url('')}}/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
+    <!-- Swett Alert -->
+    <script src="{{url('')}}/plugins/sweetalert/sweet-alert.js"></script>

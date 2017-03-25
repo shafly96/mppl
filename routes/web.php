@@ -34,12 +34,12 @@ Route::group(['prefix' => 'transaksi'], function () {
 });
 
 Route::group(['prefix' => 'service'], function () {
-    Route::get('tabel', function ()    {
-        return view('pages.service.tabel', ['active' => 'service', 'active2' => 'tabel']);
-    });
-    Route::get('form', function ()    {
-        return view('pages.service.form', ['active' => 'service', 'active2' => 'form']);
-    });
+    Route::get('tabel', 'servis@showTable');
+    Route::get('form', 'servis@showForm');
+    Route::post('store', 'servis@store');
+    Route::get('delete/{id}', 'servis@delete');
+    Route::get('edit/{id}', 'servis@edit');
+    Route::post('update/{id}', 'servis@update');
 });
 
 Route::group(['prefix' => 'konsumen'], function () {
