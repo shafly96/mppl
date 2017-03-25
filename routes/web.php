@@ -43,12 +43,12 @@ Route::group(['prefix' => 'service'], function () {
 });
 
 Route::group(['prefix' => 'konsumen'], function () {
-    Route::get('tabel', function ()    {
-        return view('pages.konsumen.tabel', ['active' => 'konsumen', 'active2' => 'tabel']);
-    });
-    Route::get('form', function ()    {
-        return view('pages.konsumen.form', ['active' => 'konsumen', 'active2' => 'form']);
-    });
+    Route::get('tabel', 'konsumen@showTable');
+    Route::get('form', 'konsumen@showForm');
+    Route::post('store', 'konsumen@store');
+    Route::get('delete/{id}', 'konsumen@delete');
+    Route::get('edit/{id}', 'konsumen@edit');
+    Route::post('update/{id}', 'konsumen@update');
 });
 
 Route::group(['prefix' => 'pegawai'], function () {
