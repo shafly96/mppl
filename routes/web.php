@@ -22,13 +22,13 @@ Route::get('/guest', function () {
 Route::group(['prefix' => 'spare-part'], function () {
     Route::get('tabel', 'sparepartController@ShowSparepart');
     Route::get('insert', 'sparepartController@ShowInsertSparepart');
-		Route::post('insert', 'sparepartController@InsertSparepart');
-		Route::post('update/{id}','sparepartController@UpdateSparepart');
-		Route::get('update/{id}', 'sparepartController@ShowUpdateSparepart');
-		Route::get('delete/{id}','sparepartController@DeleteSparepart');
-		Route::get('search','sparepartController@ShowSearchSparepart');
-		Route::get('dropspare/{kendaraan}','sparepartController@dropdownSparepart');
-		Route::get('ShowHasilPencarian/{id}','sparepartController@ShowHasilPencarian');
+    Route::post('insert', 'sparepartController@InsertSparepart');
+    Route::post('update/{id}','sparepartController@UpdateSparepart');
+    Route::get('update/{id}', 'sparepartController@ShowUpdateSparepart');
+    Route::get('delete/{id}','sparepartController@DeleteSparepart');
+    Route::get('search','sparepartController@ShowSearchSparepart');
+    Route::get('dropspare/{kendaraan}','sparepartController@dropdownSparepart');
+    Route::get('ShowHasilPencarian/{id}','sparepartController@ShowHasilPencarian');
 
 });
 
@@ -40,6 +40,14 @@ Route::group(['prefix' => 'transaksi'], function () {
     Route::get('form', function ()    {
         return view('pages.transaksi.form', ['active' => 'transaksi', 'active2' => 'form']);
     });
+});
+
+Route::group(['prefix' => 'booking'], function () {
+    Route::get('form', 'booking@showForm');
+    Route::post('store', 'booking@store');
+    Route::get('delete/{id}', 'booking@delete');
+    Route::get('edit/{id}', 'booking@edit');
+    Route::post('update/{id}', 'booking@update');
 });
 
 Route::group(['prefix' => 'service'], function () {

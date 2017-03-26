@@ -32,7 +32,7 @@
         </a>
       </li>
       <li class="<?php if($active=='booking') echo 'active' ?>">
-        <a href="#">
+        <a href="{{url('')}}/booking/form">
           <i class="fa fa-book"></i> <span>Booking Service</span>
         </a>
       </li>

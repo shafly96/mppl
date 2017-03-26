@@ -16,6 +16,9 @@
     <script src="{{url('')}}/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('')}}/dist/js/demo.js"></script>
+    <!-- date-range-picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="{{url('')}}/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Datatables -->
     <script src="{{url('')}}/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="{{url('')}}/plugins/datatables/jquery.dataTables.js"></script>
