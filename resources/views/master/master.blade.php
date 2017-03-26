@@ -5,7 +5,7 @@
     @include('master.head')
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper" style="background-color: #ecf0f5 !important;">
+    <div class="wrapper">
 
       @include('master.sidebar')
 
@@ -13,7 +13,7 @@
       <div class="content-wrapper">
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" style="padding: 5% 10%;">
           @yield('content')
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
