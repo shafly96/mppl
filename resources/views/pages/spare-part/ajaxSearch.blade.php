@@ -6,13 +6,13 @@
   </div>
   <div class="col-sm-8">
       <div class="container">
-        <h3>Nama Sparepart : </h3>
+        <h3 style="margin: 1em 0px 0px 0px;">Nama Sparepart : </h3>
         <p class="text-left">{{$sparepart->Nama_Sparepart}}</p>
-        <h3>Kendaraan Sparepart :</h3>
+        <h3 style="margin: 0px;">Kendaraan Sparepart :</h3>
         <p class="text-left">{{$sparepart->Kendaraan_Sparepart}}</p>
-        <h3>Harga Sparepart :</h3>
+        <h3 style="margin: 0px;">Harga Sparepart :</h3>
         <p class="text-left">{{$sparepart->Harga_Sparepart}}</p>
-        <h4>Status :</h4>
+        <h3 style="margin: 0px;">Status :</h3>
         <p class="text-left">@if ($sparepart->Stok_Sparepart > 0)Stok Tersedia @else Stok Habis @endif</p>
       </div>
   </div>

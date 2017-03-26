@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\sparepart;
 use DB, Redirect, Validator, View, Auth;
+use File;
 
 class sparepartController extends Controller
 {
@@ -81,16 +82,26 @@ class sparepartController extends Controller
   public function UpdateSparepart(Request $request, $id)
   {
       $update = sparepart::find($id);
+        $exist = Storage::disk('local')->exists("spareparts/".$update->Nama_Sparepart.$update->Kendaraan_Sparepart.'.jpg');
+      //  dd($exist);
 
-
-  //  dd($request->nama_sparepart);
         if (NULL != $request->file('avatar'))
         {
           $file = $request->file('avatar');
+          Storage::delete('spareparts/'.$update->Nama_Sparepart.$update->Kendaraan_Sparepart.'.jpg');
+
           $file->storeAs('spareparts/',$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
         }
         else {
-            Storage::move('spareparts/'.$update->Nama_Sparepart.$update->Kendaraan_Sparepart.'.jpg','spareparts/'.$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
+
+            if ($exist)
+            {
+              if ($request->nama_sparepart != $update->Nama_Sparepart || $request->kendaraan_sparepart != $update->Kendaraan_Sparepart)
+              {
+                Storage::move('spareparts/'.$update->Nama_Sparepart.$update->Kendaraan_Sparepart.'.jpg','spareparts/'.$request->nama_sparepart.$request->kendaraan_sparepart.'.jpg');
+              }
+            }
+
         }
 
         $update->Nama_Sparepart = $request->nama_sparepart;

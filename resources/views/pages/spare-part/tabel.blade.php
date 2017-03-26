@@ -64,7 +64,7 @@
 																			</div>
 																		</div>
 																</div>
-																<a href="{{url('/')}}/spare-part/update/{{$dat->ID_Sparepart}}" class= "btn btn-success btn-xs"> Update Sparepart</a>
+																<a href="{{url('/')}}/spare-part/update/{{$dat->ID_Sparepart}}" class= "btn btn-success btn-xs"> Update</a>
 							</td>
 						</tr>
 						@endforeach
