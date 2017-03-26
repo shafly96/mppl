@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-	return view('pages.index', ['active' => '', 'active2' => '']);
+	return view('master.index');
+});
+
+Route::get('/guest', function () {
+    return view('pages.index', ['active' => '-', 'active2' => '-']);
 });
 
 Route::group(['prefix' => 'spare-part'], function () {
