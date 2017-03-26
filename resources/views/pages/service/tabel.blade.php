@@ -11,7 +11,7 @@
 			Data Telah Diupdate
 		</div>
 		@endif
-		<div class="box">
+		<div class="box box-primary">
 			<div class="box-header">
 				<h3 class="box-title">Tabel Service</h3>
 			</div><!-- /.box-header -->

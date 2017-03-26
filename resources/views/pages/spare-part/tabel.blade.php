@@ -9,7 +9,7 @@
 		        {{ session('success') }}
 		    </div>
 		@endif
-		<div class="box">
+		<div class="box box-primary">
 			<div class="box-header">
 				<h3 class="box-title">Tabel Spare Part</h3>
 			</div><!-- /.box-header -->
