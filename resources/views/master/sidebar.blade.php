@@ -16,13 +16,13 @@
 </header>
 
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar" style="height:100vh !important;">
   <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
+  <section class="sidebar" >
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="<?php if($active=='pengecekan') echo 'active' ?>">
-        <a href="#">
+        <a href="{{url('')}}/spare-part/search">
           <i class="fa fa-list-ul"></i> <span>Pengecekan Barang</span>
         </a>
       </li>

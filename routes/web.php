@@ -22,6 +22,9 @@ Route::group(['prefix' => 'spare-part'], function () {
 		Route::post('update/{id}','sparepartController@UpdateSparepart');
 		Route::get('update/{id}', 'sparepartController@ShowUpdateSparepart');
 		Route::get('delete/{id}','sparepartController@DeleteSparepart');
+		Route::get('search','sparepartController@ShowSearchSparepart');
+		Route::get('dropspare/{kendaraan}','sparepartController@dropdownSparepart');
+		Route::get('ShowHasilPencarian/{id}','sparepartController@ShowHasilPencarian');
 
 });
 

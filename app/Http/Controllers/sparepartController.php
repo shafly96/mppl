@@ -25,11 +25,36 @@ class sparepartController extends Controller
       $data['active'] = 'spare-part';
       $data['active2'] = 'form';
       $data['sparepart'] = sparepart::find($id);
+    //  dd($data['sparepart']);
       return view('pages.spare-part.form',$data);
   }
+  public function ShowSearchSparepart(){
+    $data['active'] = 'pengecekan';
+    $data['active2'] = '';
+    $data['kendaraan'] = sparepart::select('Kendaraan_Sparepart')->distinct()->get();
+    return view('pages.spare-part.search',$data);
+  }
+  public function dropdownSparepart($kendaraan){
+    $data['active'] = 'spare-part';
+    $data['active2'] = 'search';
+    $data['spsearch'] = sparepart::where('Kendaraan_Sparepart','=',$kendaraan)->select("Nama_Sparepart",'ID_Sparepart')->orderBy('Kendaraan_Sparepart', 'ASC')->get();
+    return view('pages.spare-part.dropdown-sparepart',$data);
+  }
+
+  public function ShowHasilPencarian($id)
+  {
+    $data['active'] = 'spare-part';
+    $data['active2'] = 'search';
+    $data['sparepart'] = sparepart::find($id);
+    $data['storagepath'] =storage::url('app/spareparts/'.$data['sparepart']->Nama_Sparepart.$data['sparepart']->Kendaraan_Sparepart.'.jpg');
+    $data['defaultpath'] = storage::url('app/public/default.png');
+  //  $lol=  storage::url('public/default.png');
+//  dd($data['defaultpath']);
+    return view('pages.spare-part.ajaxSearch',$data);
+    //dd($data['storagepath']);
+  }
+
   public function InsertSparepart(Request $request){
-
-
 
     if($this->verifyData($request))
     {

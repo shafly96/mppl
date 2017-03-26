@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{url('')}}/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -29,11 +29,12 @@
     <link rel="stylesheet" href="{{url('')}}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- datatables -->
     <link href="{{url('')}}/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-</head>
-=======
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
     <!-- sweet alert -->
     <link href="{{url('')}}/plugins/sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+
+    <!--select2-->
+    <link href="{{url('')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+
 </head>
->>>>>>> b48fa875bc802a24afaf20d2d54ec330dd9e358c

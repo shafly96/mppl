@@ -27,13 +27,13 @@
 					<div class="form-group">
 						<label>Nama Sparepart</label>
 						<input type="text" name="nama_sparepart"class="form-control" placeholder="Masukan Nama Sparepart"
-						@if(isset($sparepart))value={{$sparepart->Nama_Sparepart}}@endif>
+						@if(isset($sparepart))value="{{$sparepart->Nama_Sparepart}}"@endif>
 						<input type="hidden" name="_token" value="{{csrf_token()}}">
 					</div>
 					<div class="form-group">
 						<label>Kendaraan Sparepart</label>
 						<input type="text" name="kendaraan_sparepart"class="form-control" placeholder="Masukan Nama Kendaraan"
-						@if(isset($sparepart))value={{$sparepart->Kendaraan_Sparepart}}@endif>
+						@if(isset($sparepart))value="{{$sparepart->Kendaraan_Sparepart}}"@endif>
 					</div>
 					<div class="form-group">
 						<label>Harga Sparepart</label>
@@ -48,7 +48,7 @@
 					<div class="form-group">
 						<label for="exampleInputFile">File input</label>
 						<input type="file" name="avatar">
-						<p class="help-block">Example block-level help text here.</p>
+						<p class="help-block">Masukkan gambar sparepart disini</p>
 					</div>
 
 				</div><!-- /.box-body -->
