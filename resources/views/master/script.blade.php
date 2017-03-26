@@ -19,17 +19,9 @@
     <!-- Datatables -->
     <script src="{{url('')}}/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="{{url('')}}/plugins/datatables/jquery.dataTables.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 81cb54786c15b05edf9c8950c57eae5156707bf0
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
     <!-- Swett Alert -->
     <script src="{{url('')}}/plugins/sweetalert/sweet-alert.js"></script>
     <!-- select2 -->
     <script src="{{url('')}}/plugins/select2/select2.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
-    <!-- Swett Alert -->
-    <script src="{{url('')}}/plugins/sweetalert/sweet-alert.js"></script>
