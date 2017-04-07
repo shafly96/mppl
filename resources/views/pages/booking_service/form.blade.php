@@ -33,7 +33,7 @@
 				</div><!-- /.box-body -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-primary" id="simpan">Simpan</button>
+					<button type="submit" class="btn btn-primary" id="simpan">Booking</button>
 				</div>
 			</form>
 			<div class="box-body">
@@ -69,6 +69,27 @@
 					</tbody>
 				</table>
 			</div><!-- /.box-body -->
+			<div class="box-body">
+				<table id="example1" class="table table-bordered table-striped dt-responsive nowrap">
+					<thead>
+						<tr>
+							<th>Waktu Transaksi</th>
+							<th>Deskripsi Servis</th>
+							<th>Harga Servis</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($servis as $n)
+						<tr>
+							<td>30 Maret 2017</td>
+							<td>{{ $n->Deskripsi_Servis }}</td>
+							<td>{{ $n->Harga_Servis }}</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div><!-- /.box-body -->
+
 		</div><!-- /.box -->
 	</div>
 </div>

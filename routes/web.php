@@ -32,14 +32,21 @@ Route::group(['prefix' => 'spare-part'], function () {
 
 });
 
+Route::group(['prefix' => 'ktransaksi'], function () {
+    Route::get('form', 'ktransaksi@showForm');
+    Route::post('store', 'ktransaksi@store');
+    Route::get('delete/{id}', 'ktransaksi@delete');
+    Route::get('edit/{id}', 'ktransaksi@edit');
+    Route::post('update/{id}', 'ktransaksi@update');
+});
+
 
 Route::group(['prefix' => 'transaksi'], function () {
-    Route::get('tabel', function ()    {
-        return view('pages.transaksi.tabel', ['active' => 'transaksi', 'active2' => 'tabel']);
-    });
-    Route::get('form', function ()    {
-        return view('pages.transaksi.form', ['active' => 'transaksi', 'active2' => 'form']);
-    });
+    Route::get('form', 'transaksi@showForm');
+    Route::post('store', 'transaksi@store');
+    Route::get('delete/{id}', 'transaksi@delete');
+    Route::get('edit/{id}', 'transaksi@edit');
+    Route::post('update/{id}', 'transaksi@update');
 });
 
 Route::group(['prefix' => 'booking'], function () {

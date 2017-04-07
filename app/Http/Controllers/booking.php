@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\konsumen;
 use App\booking;
+use App\servis;
 use DateTime;
 
 class booking extends Controller
 {
 	public function showForm(){
 		$booking = booking::where('Status_Pengerjaan','<', 3)->get();
-		return view('pages.booking_service.form', ['active' => 'booking', 'active2' => '-', 'sukses' => 0, 'konsumen' => konsumen::all(), 'booking' => $booking]);
+		return view('pages.booking_service.form', ['active' => 'booking', 'active2' => '-', 'sukses' => 0, 'konsumen' => konsumen::all(), 'booking' => $booking, 'servis' => servis::all()]);
 	}
 
 	public function store(Request $request){
