@@ -1,5 +1,5 @@
 <label style="width:100%;">Nama Sparepart</label>
-<select onchange="ShowHasilPencarian(this.value)" id="single" style="width:100%;">
+<select onchange="ShowHasilPencarian(this.value)" class="single" style="width:100%;" name="sparepart[]">
   <option value="">--</option>
   @foreach($spsearch as $search)
   <option value="{{$search->ID_Sparepart}}">{{$search->Nama_Sparepart}}</option>
