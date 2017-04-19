@@ -103,7 +103,7 @@
         </ul>
       </li>
       <li class="<?php if($active=='report') echo 'active' ?>">
-        <a href="#">
+        <a href="{{url('/')}}/transaksi/report">
           <i class="fa fa-list-alt"></i> <span>Report Bulanan</span>
         </a>
       </li>

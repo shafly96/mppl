@@ -12,7 +12,7 @@
 			</div><!-- box-header -->
 			<!-- form start -->
 			<form action="{{url('/')}}/spare-part/@if(isset($sparepart))update/{{$sparepart->ID_Sparepart}} @else
-			insert @endif" method="POST" role="form" enctype="multipart/form-data">
+			insert @endif" method="POST" role="form" enctype="multipart/form-data" id="srcspare">
 				<div class="box-body">
 					<div class="form-group">
 						<label style="width:100%;">Jenis Kendaraan</label>
@@ -26,7 +26,7 @@
 					</div>
 
           <div id="dropspare"></div>
-          <div id="hasil"></div>
+					<div id="hasil"></div>
 				</div><!-- /.box-body -->
 
 				<div class="box-footer">
@@ -43,26 +43,39 @@
 <script type="text/javascript">
 
 
-function getSparepart(str) {
-  if (str.length==0) {
-    document.getElementById("dropspare").innerHTML="";
-    document.getElementById("dropspare").style.border="0px";
-    return;
-  }
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("dropspare").innerHTML=this.responseText;
-    //  document.getElementById("dropspare").style.border="1px solid #A5ACB2";
-    }
-  }
-  xmlhttp.open("GET","{{url('/')}}/spare-part/dropspare/"+str,true);
-  xmlhttp.send();
+// function getSparepart(str) {
+//   if (str.length==0) {
+//     document.getElementById("dropspare").innerHTML="";
+//     document.getElementById("dropspare").style.border="0px";
+//     return;
+//   }
+//   if (window.XMLHttpRequest) {
+//     // code for IE7+, Firefox, Chrome, Opera, Safari
+//     xmlhttp=new XMLHttpRequest();
+//   } else {  // code for IE6, IE5
+//     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//   }
+//   xmlhttp.onreadystatechange=function() {
+//     if (this.readyState==4 && this.status==200) {
+//       document.getElementById("dropspare").innerHTML=this.responseText;
+//     //  document.getElementById("dropspare").style.border="1px solid #A5ACB2";
+//     }
+//   }
+//   xmlhttp.open("GET","{{url('/')}}/spare-part/dropspare/"+str,true);
+//   xmlhttp.send();
+// }
+
+function getSparepart(str){
+	$.ajax({
+		type : "GET",
+		cache: false,
+		url : "{{url('/')}}/spare-part/dropspare/"+ str,
+		dataType: "html",
+		success: function(res){
+			$('#srcspare').find('#dropspare').html(res);
+			$('.single').select2();
+		}
+	});
 }
 
 function ShowHasilPencarian(str) {
@@ -81,14 +94,15 @@ function ShowHasilPencarian(str) {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("hasil").innerHTML=this.responseText;
     //  document.getElementById("dropspare").style.border="1px solid #A5ACB2";
-    }
+			$(".single").select2();
+		}
   }
   xmlhttp.open("GET","{{url('/')}}/spare-part/ShowHasilPencarian/"+str,true);
   xmlhttp.send();
 }
 $(document).ready(function() {
   $(".js-example-basic-single").select2();
-  $("#single").select2();
+  //$("#single").select2();
 
 });
 
