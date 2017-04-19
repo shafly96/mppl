@@ -1,37 +1,39 @@
 @extends('master.master')
 
 @section('content')
+
 <div id="myModal" class="modal fade" role="dialog"></div>
 
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col-md-12">
+		@if($sukses==1)
+		<div class="alert alert-success">
+			Data Telah Diupdate
+		</div>
+		@endif
 		<div class="box box-primary">
 			<div class="box-header">
-				<h3 class="box-title">Tabel Pegawai</h3>
+				<h3 class="box-title">Tabel Jabatan</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 				<table id="example1" class="table table-bordered table-striped dt-responsive nowrap">
 					<thead>
 						<tr>
-							<th>ID Pegawai</th>
-							<th>ID Jabatan</th>
-							<th>Nama Pegawai</th>
-							<th>No Telp Pegawai</th>
-							<th>Alamat Pegawai</th>
+							<th>ID</th>
+							<th>Nama Jabatan</th>
+							<th>Gaji Jabatan</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($pegawai as $n)
+						@foreach($jabatan as $n)
 						<tr>
-							<td>{{ $n->ID_Pegawai }}</td>
 							<td>{{ $n->ID_Jabatan }}</td>
-							<td>{{ $n->Nama_Pegawai }}</td>
-							<td>{{ $n->No_Telp_Pegawai }}</td>
-							<td>{{ $n->Alamat_Pegawai }}</td>
+							<td>{{ $n->Nama_Jabatan }}</td>
+							<td>{{ $n->Gaji }}</td>
 							<td>
-								<a onclick="showEdit({{ $n->ID_Pegawai }})" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#myModal">Edit</a>
-								<a onclick="deletedata({{ $n->ID_Pegawai }})" class="btn btn-danger" id="delete">Delete</a>
+								<a onclick="showEdit({{ $n->ID_Jabatan }})" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#myModal">Edit</a>
+								<a onclick="deletedata({{ $n->ID_Jabatan }})" class="btn btn-danger" id="delete">Delete</a>
 							</td>
 						</tr>
 						@endforeach
@@ -81,7 +83,7 @@ function deletedata(str) {
 		confirmButtonColor: "#ec6c62"
 	}, function() {
 		$.ajax({
-			url: "{{url('')}}/pegawai/delete/" + str,
+			url: "{{url('')}}/jabatan/delete/" + str,
 			type: "GET"
 		})
 		.done(function(data) {
@@ -91,7 +93,7 @@ function deletedata(str) {
 				type: "success",
 				showCancelButton: false
 			}, function() {
-				window.location.href = '{{url('')}}/pegawai/tabel';
+				window.location.href = '{{url('')}}/jabatan/tabel';
 			});
 		})
 		.error(function(data) {

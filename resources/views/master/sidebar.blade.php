@@ -91,6 +91,17 @@
           <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/pegawai/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
         </ul>
       </li>
+      <li class="treeview <?php if($active=='jabatan') echo 'active' ?>">
+        <a href="#">
+          <i class="fa fa-male"></i>
+          <span>Jabatan</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($active2=='tabel') echo 'active' ?>"><a href="{{url('')}}/jabatan/tabel"><i class="fa fa-circle-o"></i> Tabel Data</a></li>
+          <li class="<?php if($active2=='form') echo 'active' ?>"><a href="{{url('')}}/jabatan/form"><i class="fa fa-circle-o"></i> Input Data</a></li>
+        </ul>
+      </li>
       <li class="<?php if($active=='report') echo 'active' ?>">
         <a href="#">
           <i class="fa fa-list-alt"></i> <span>Report Bulanan</span>

@@ -75,11 +75,20 @@ Route::group(['prefix' => 'konsumen'], function () {
     Route::post('update/{id}', 'konsumen@update');
 });
 
+Route::group(['prefix' => 'jabatan'], function () {
+    Route::get('tabel', 'jabatan@showTable');
+    Route::get('form', 'jabatan@showForm');
+    Route::post('store', 'jabatan@store');
+    Route::get('delete/{id}', 'jabatan@delete');
+    Route::get('edit/{id}', 'jabatan@edit');
+    Route::post('update/{id}', 'jabatan@update');
+});
+
 Route::group(['prefix' => 'pegawai'], function () {
-    Route::get('tabel', function ()    {
-        return view('pages.pegawai.tabel', ['active' => 'pegawai', 'active2' => 'tabel']);
-    });
-    Route::get('form', function ()    {
-        return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form']);
-    });
+    Route::get('tabel', 'pegawai@showTable');
+    Route::get('form', 'pegawai@showForm');
+    Route::post('store', 'pegawai@store');
+    Route::get('delete/{id}', 'pegawai@delete');
+    Route::get('edit/{id}', 'pegawai@edit');
+    Route::post('update/{id}', 'pegawai@update');
 });
