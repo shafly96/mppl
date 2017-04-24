@@ -43,18 +43,18 @@ Route::group(['prefix' => 'ktransaksi'], function () {
 
 Route::group(['prefix' => 'transaksi'], function () {
     Route::get('form', 'transaksi@showForm');
-		Route::get('tabel','transaksi@showTable');
-		Route::get('tabelkt/{id}','transaksi@showTablekt');
+    Route::get('tabel','transaksi@showTable');
+    Route::get('tabelkt/{id}','transaksi@showTablekt');
     Route::post('store', 'transaksi@store');
     Route::get('delete/{id}', 'transaksi@delete');
-		Route::get('deletekt/{id}', 'transaksi@deletekt');
+    Route::get('deletekt/{id}', 'transaksi@deletekt');
     Route::get('edit/{id}', 'transaksi@edit');
     Route::post('update/{id}', 'transaksi@update');
-		Route::get('updatekt/{id}','transaksi@formUpKt');
-		Route::post('updatekt/{id}','transaksi@updateKt');
-		Route::get('tipe','transaksi@addType');
-		Route::get('tambah/{count}', 'transaksi@tambahTransaksi');
-		Route::get('report', 'transaksi@report');
+    Route::get('updatekt/{id}','transaksi@formUpKt');
+    Route::post('updatekt/{id}','transaksi@updateKt');
+    Route::get('tipe','transaksi@addType');
+    Route::get('tambah/{count}', 'transaksi@tambahTransaksi');
+    Route::get('report', 'transaksi@report');
 });
 
 Route::group(['prefix' => 'booking'], function () {
@@ -99,4 +99,14 @@ Route::group(['prefix' => 'pegawai'], function () {
     Route::get('delete/{id}', 'pegawai@delete');
     Route::get('edit/{id}', 'pegawai@edit');
     Route::post('update/{id}', 'pegawai@update');
+});
+
+Route::group(['prefix' => 'konsultasi'], function () {
+    Route::get('show', 'konsultasi@show');
+    Route::post('store', 'konsultasi@store');
+    Route::get('delete/{id}', 'konsultasi@delete');
+    Route::get('edit/{id}', 'konsultasi@edit');
+    Route::post('update/{id}', 'konsultasi@update');
+    Route::get('reply/{id}', 'konsultasi@reply');
+    Route::post('storeReply/{id}', 'konsultasi@storeReply');
 });

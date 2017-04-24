@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2017 at 06:39 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.3
+-- Generation Time: 19 Apr 2017 pada 19.01
+-- Versi Server: 10.1.10-MariaDB
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sibengkelmotor`
+-- Database: `sibengkel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Struktur dari tabel `booking`
 --
 
 CREATE TABLE `booking` (
@@ -33,10 +33,22 @@ CREATE TABLE `booking` (
   `Status_Pengerjaan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `booking`
+--
+
+INSERT INTO `booking` (`ID_Booking`, `ID_Konsumen`, `Waktu_Booking`, `Status_Pengerjaan`) VALUES
+(2, 9825000, '2017-03-26 07:52:03', 1),
+(4, 9825000, '2017-03-26 07:58:10', 1),
+(5, 9825000, '2017-03-26 08:37:23', 3),
+(6, 9825000, '2017-03-29 18:55:06', 1),
+(7, 9825000, '2017-03-30 19:48:16', 1),
+(8, 9825001, '2017-04-16 05:50:36', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan_pegawai`
+-- Struktur dari tabel `jabatan_pegawai`
 --
 
 CREATE TABLE `jabatan_pegawai` (
@@ -46,16 +58,17 @@ CREATE TABLE `jabatan_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jabatan_pegawai`
+-- Dumping data untuk tabel `jabatan_pegawai`
 --
 
 INSERT INTO `jabatan_pegawai` (`ID_Jabatan`, `Nama_Jabatan`, `Gaji`) VALUES
-(1, 'manager', 10000);
+(1, 'manager', 10000),
+(2, 'montir', 123);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang_transaksi`
+-- Struktur dari tabel `keranjang_transaksi`
 --
 
 CREATE TABLE `keranjang_transaksi` (
@@ -69,7 +82,7 @@ CREATE TABLE `keranjang_transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konsultasi`
+-- Struktur dari tabel `konsultasi`
 --
 
 CREATE TABLE `konsultasi` (
@@ -82,7 +95,7 @@ CREATE TABLE `konsultasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konsumen`
+-- Struktur dari tabel `konsumen`
 --
 
 CREATE TABLE `konsumen` (
@@ -92,10 +105,19 @@ CREATE TABLE `konsumen` (
   `Alamat_Konsumen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `konsumen`
+--
+
+INSERT INTO `konsumen` (`ID_Konsumen`, `Nama_Konsumen`, `No_Telp_Konsumen`, `Alamat_Konsumen`) VALUES
+(9825000, 'tes', '124124', 'surabaya'),
+(9825001, 'sfdfds', '123123', 'acaca'),
+(9825002, 'om', '090898', 'surabaya kota');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -112,7 +134,7 @@ CREATE TABLE `login` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -123,10 +145,18 @@ CREATE TABLE `pegawai` (
   `No_Telp_Pegawai` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`ID_Pegawai`, `ID_Jabatan`, `Nama_Pegawai`, `Alamat_Pegawai`, `No_Telp_Pegawai`) VALUES
+(1, 1, 'ehehhh', 'uhuy', '123'),
+(2, 1, 'qweqw', 'wqeqw', '123');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reply`
+-- Struktur dari tabel `reply`
 --
 
 CREATE TABLE `reply` (
@@ -140,7 +170,7 @@ CREATE TABLE `reply` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `servis`
+-- Struktur dari tabel `servis`
 --
 
 CREATE TABLE `servis` (
@@ -149,24 +179,38 @@ CREATE TABLE `servis` (
   `Harga_Servis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `servis`
+--
+
+INSERT INTO `servis` (`ID_Servis`, `Deskripsi_Servis`, `Harga_Servis`) VALUES
+(5, 'coba edit tes', 2423434);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sparepart`
+-- Struktur dari tabel `sparepart`
 --
 
 CREATE TABLE `sparepart` (
   `ID_Sparepart` int(11) NOT NULL,
   `Nama_Sparepart` varchar(25) NOT NULL,
-  `Kendaran_Sparepart` varchar(25) NOT NULL,
+  `Kendaraan_Sparepart` varchar(25) NOT NULL,
   `Harga_Sparepart` int(11) NOT NULL,
   `Stok_Sparepart` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `sparepart`
+--
+
+INSERT INTO `sparepart` (`ID_Sparepart`, `Nama_Sparepart`, `Kendaraan_Sparepart`, `Harga_Sparepart`, `Stok_Sparepart`) VALUES
+(1, 'Knalpot', 'Honda Vario', 100000, 120);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -266,12 +310,12 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID_Booking` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `jabatan_pegawai`
 --
 ALTER TABLE `jabatan_pegawai`
-  MODIFY `ID_Jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `keranjang_transaksi`
 --
@@ -286,7 +330,7 @@ ALTER TABLE `konsultasi`
 -- AUTO_INCREMENT for table `konsumen`
 --
 ALTER TABLE `konsumen`
-  MODIFY `ID_Konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9825000;
+  MODIFY `ID_Konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9825003;
 --
 -- AUTO_INCREMENT for table `login`
 --
@@ -296,7 +340,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `ID_Pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5156000;
+  MODIFY `ID_Pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `reply`
 --
@@ -306,29 +350,29 @@ ALTER TABLE `reply`
 -- AUTO_INCREMENT for table `servis`
 --
 ALTER TABLE `servis`
-  MODIFY `ID_Servis` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Servis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `sparepart`
 --
 ALTER TABLE `sparepart`
-  MODIFY `ID_Sparepart` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Sparepart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `ID_Transaksi` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `booking`
+-- Ketidakleluasaan untuk tabel `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`ID_Konsumen`) REFERENCES `konsumen` (`ID_Konsumen`) ON DELETE CASCADE;
 
 --
--- Constraints for table `keranjang_transaksi`
+-- Ketidakleluasaan untuk tabel `keranjang_transaksi`
 --
 ALTER TABLE `keranjang_transaksi`
   ADD CONSTRAINT `keranjang_transaksi_ibfk_1` FOREIGN KEY (`ID_Servis`) REFERENCES `servis` (`ID_Servis`) ON DELETE CASCADE,
@@ -336,27 +380,27 @@ ALTER TABLE `keranjang_transaksi`
   ADD CONSTRAINT `keranjang_transaksi_ibfk_3` FOREIGN KEY (`ID_Transaksi`) REFERENCES `transaksi` (`ID_Transaksi`) ON DELETE CASCADE;
 
 --
--- Constraints for table `login`
+-- Ketidakleluasaan untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`ID_Pelanggan`) REFERENCES `konsumen` (`ID_Konsumen`) ON DELETE CASCADE,
   ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`ID_Pegawai`) REFERENCES `pegawai` (`ID_Pegawai`) ON DELETE CASCADE;
 
 --
--- Constraints for table `pegawai`
+-- Ketidakleluasaan untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`ID_Jabatan`) REFERENCES `jabatan_pegawai` (`ID_Jabatan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `reply`
+-- Ketidakleluasaan untuk tabel `reply`
 --
 ALTER TABLE `reply`
   ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`ID_Konsultasi`) REFERENCES `konsultasi` (`ID_Konsultasi`) ON DELETE CASCADE,
   ADD CONSTRAINT `reply_ibfk_2` FOREIGN KEY (`ID_Konsumen`) REFERENCES `konsumen` (`ID_Konsumen`) ON DELETE CASCADE;
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`ID_Konsumen`) REFERENCES `konsumen` (`ID_Konsumen`),

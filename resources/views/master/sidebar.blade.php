@@ -27,7 +27,7 @@
         </a>
       </li>
       <li class="<?php if($active=='konslutasi') echo 'active' ?>">
-        <a href="#">
+        <a href="{{url('')}}/konsultasi/show">
           <i class="fa fa-sticky-note-o"></i> <span>Konsultasi</span>
         </a>
       </li>
