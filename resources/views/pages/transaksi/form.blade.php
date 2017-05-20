@@ -15,7 +15,7 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label>Pilih Konsumen</label>
-						<select class="form-control" id="kons" name="konsumen" >
+						<select class="form-control" id="kons" name="konsumen" required>
 								<option value="">--</option>
 								@foreach($konsumen as $kons)
 									<option value="{{$kons->ID_Konsumen}}">{{$kons->ID_Konsumen}} -- {{$kons->Nama_Konsumen}}</option>

@@ -12,12 +12,19 @@
 */
 
 Route::get('/', function () {
-	return view('master.index');
+	if(!Auth::check()) return view('master.index');
+	else return Redirect::to('/guest');
 });
 
 Route::get('/guest', function () {
     return view('pages.index', ['active' => '-', 'active2' => '-']);
 });
+Route::get('/logout', function () {
+	  Auth::logout();
+    return view('master.index');
+});
+
+Route::post('/logs','pegawai@login');
 
 Route::group(['prefix' => 'spare-part'], function () {
     Route::get('tabel', 'sparepartController@ShowSparepart');
@@ -59,7 +66,7 @@ Route::group(['prefix' => 'transaksi'], function () {
 
 Route::group(['prefix' => 'booking'], function () {
     Route::get('form', 'booking@showForm');
-    Route::post('store', 'booking@store');
+    Route::get('store', 'booking@store');
     Route::get('delete/{id}', 'booking@delete');
     Route::get('edit/{id}', 'booking@edit');
     Route::post('update/{id}', 'booking@update');

@@ -20,11 +20,11 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama Jabatan</label>
-						<input type="text" class="form-control" name="nama" placeholder="Nama Jabatan">
+						<input type="text" class="form-control" name="nama" placeholder="Nama Jabatan" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Gaji Jabatan</label>
-						<input type="text" class="form-control" name="gaji" placeholder="Gaji Jabatan">
+						<input type="text" class="form-control" name="gaji" placeholder="Gaji Jabatan" required>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				</div><!-- /.box-body -->

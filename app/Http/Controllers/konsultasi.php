@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\konsultasi;
 use App\reply;
+use Auth;
 use DateTime;
 
 class konsultasi extends Controller
@@ -18,11 +19,12 @@ class konsultasi extends Controller
 		$konsultasi = new konsultasi;
 		$now = new DateTime();
 		$konsultasi->judul = $request->judul;
+    $konsultasi->ID_Konsumen = Auth::User()->ID_Pelanggan;
 		$konsultasi->deskripsi_konsultasi = $request->deskripsi;
 		$konsultasi->waktu_buat = $now;
 		if($konsultasi->save()) return redirect('/konsultasi/show')->with(['active' => 'konsultasi', 'active2' => 0, 'sukses' => 1, 'konsultasi' => konsultasi::all()]);
 		else return redirect('/konsultasi/show')->with(['active' => 'konsultasi', 'active2' => 0, 'sukses' => 0, 'konsultasi' => konsultasi::all()]);
-	}	
+	}
 
 	public function edit($id){
 		$konsultasi = konsultasi::where('ID_Konsultasi', $id)->first();
@@ -37,7 +39,7 @@ class konsultasi extends Controller
 
 		if($konsultasi->save()) return redirect('/konsultasi/show')->with(['active' => 'konsultasi', 'active2' => 0, 'sukses' => 1, 'konsultasi' => konsultasi::all()]);
 		else return redirect('/konsultasi/show')->with(['active' => 'konsultasi', 'active2' => 0, 'sukses' => 0, 'konsultasi' => konsultasi::all()]);
-	} 
+	}
 
 	public function delete($id){
 		$konsultasi = konsultasi::find($id);

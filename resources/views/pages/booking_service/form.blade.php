@@ -18,11 +18,11 @@
 				<h3 class="box-title">Form Konsumen</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" method="post" action="store">
+			<!-- <form role="form" method="post" action="store">
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama Konsumen</label>
-						<select onchange="getSparepart(this.value)" class="js-example-basic-single" style="width:100%;" name="id_konsumen">
+						<select onchange="getSparepart(this.value)" class="js-example-basic-single" style="width:100%;" name="id_konsumen" required>
 							<option value="" >--</option>
 							@foreach($konsumen as $n)
 							<option value="{{$n->ID_Konsumen}}">{{$n->ID_Konsumen}}-{{$n->Nama_Konsumen}}</option>
@@ -30,10 +30,10 @@
 						</select>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				</div><!-- /.box-body -->
+				</div> -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-primary" id="simpan">Booking</button>
+					<a href="{{url('/')}}/booking/store"  class="btn btn-primary" id="simpan">Booking</a>
 				</div>
 			</form>
 			<div class="box-body">
@@ -44,7 +44,10 @@
 							<th>ID Konsumen</th>
 							<th>Waktu Booking</th>
 							<th>Status Pengerjaan</th>
+							@if(Auth::user()->access_type=="pegawai")
+
 							<th>Action</th>
+							@endif
 						</tr>
 					</thead>
 					<tbody>
@@ -54,16 +57,19 @@
 							<td>{{ $n->ID_Konsumen }}</td>
 							<td>{{ $n->Waktu_Booking }}</td>
 							<td>
-								<?php 
+								<?php
 								if($n->Status_Pengerjaan==1) echo"Menunggu";
 								elseif ($n->Status_Pengerjaan==2) echo "Pengerjaan";
 								else echo "Selesai";
 								?>
 							</td>
+							@if(Auth::user()->access_type=="pegawai")
+
 							<td>
 								<a onclick="showEdit({{ $n->ID_Booking }})" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#myModal">Edit</a>
 								<a onclick="deletedata({{ $n->ID_Booking }})" class="btn btn-danger" id="delete">Delete</a>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					</tbody>
@@ -105,7 +111,7 @@
 		if (str == "") {
 			document.getElementById("myModal").innerHTML = "";
 			return;
-		} else { 
+		} else {
 			if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -125,8 +131,8 @@
 
 function deletedata(str) {
 	swal({
-		title: "Anda yakin?", 
-		text: "Ingin menghapus data ini", 
+		title: "Anda yakin?",
+		text: "Ingin menghapus data ini",
 		type: "warning",
 		showCancelButton: true,
 		closeOnConfirm: false,
@@ -139,8 +145,8 @@ function deletedata(str) {
 		})
 		.done(function(data) {
 			swal({
-				title: "Terhapus!", 
-				text: "Data berhasil terhapus!", 
+				title: "Terhapus!",
+				text: "Data berhasil terhapus!",
 				type: "success",
 				showCancelButton: false
 			}, function() {

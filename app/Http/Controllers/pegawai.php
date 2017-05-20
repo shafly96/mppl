@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\pegawai;
 use App\jabatan;
+use App\User;
+use DB, Redirect, Validator, View, Auth;
 
 class pegawai extends Controller
 {
@@ -23,9 +25,40 @@ class pegawai extends Controller
 		$pegawai->nama_pegawai = $request->nama;
 		$pegawai->no_telp_pegawai = $request->telp;
 		$pegawai->alamat_pegawai = $request->alamat;
-		if($pegawai->save()) return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form', 'sukses' => 1, 'jabatan' => jabatan::all()]);
+		if($pegawai->save()){
+      $login = new User;
+      $login->ID_Pegawai = $pegawai->ID_Pegawai;
+      $login->Password = bcrypt("123");
+      $login->access_type = "pegawai";
+      if($login->save()){
+        return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form', 'sukses' => 1, 'jabatan' => jabatan::all()]);
+      }
+      else return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form', 'sukses' => 0, 'jabatan' => jabatan::all()]);
+    }
 		else return view('pages.pegawai.form', ['active' => 'pegawai', 'active2' => 'form', 'sukses' => 0, 'jabatan' => jabatan::all()]);
 	}
+  public function login(Request $request){
+    if($request->role == '1'){
+      if(Auth::attempt(['ID_Pegawai' => $request->userid, 'password' => $request->password]))
+      {
+          return Redirect::to('guest')->with('success','Login success');
+      }
+      else
+      {
+          return Redirect::to('/')->with('failed','Wrong username or password!');
+      }
+    }
+    else {
+      if(Auth::attempt(['ID_Pelanggan' => $request->userid, 'password' => $request->password]))
+      {
+          return Redirect::to('guest')->with('success','Login success');
+      }
+      else
+      {
+          return Redirect::to('/')->with('failed','Wrong username or password!');
+      }
+    }
+  }
 
 	public function delete($id){
 		$pegawai = pegawai::find($id);
@@ -40,7 +73,7 @@ class pegawai extends Controller
 
 	public function update($id){
 		$pegawai = pegawai::find($id);
-		
+
 		$pegawai->nama_pegawai = Input::get('nama');
 		$pegawai->no_telp_pegawai = Input::get('telp');
 		$pegawai->alamat_pegawai = Input::get('alamat');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\konsumen;
 use App\booking;
 use App\servis;
+use Auth;
 use DateTime;
 
 class booking extends Controller
@@ -16,10 +17,10 @@ class booking extends Controller
 		return view('pages.booking_service.form', ['active' => 'booking', 'active2' => '-', 'sukses' => 0, 'konsumen' => konsumen::all(), 'booking' => $booking, 'servis' => servis::all()]);
 	}
 
-	public function store(Request $request){
+	public function store(){
 		$booking = new booking;
 		$now = new DateTime();
-		$booking->id_konsumen = $request->id_konsumen;
+		$booking->id_konsumen = Auth::User()->ID_Pelanggan;
 		$booking->waktu_booking = $now;
 		$booking->status_pengerjaan = 1;
 		if($booking->save()) return redirect('/booking/form')->with(['active' => 'booking', 'active2' => '-', 'sukses' => 1, 'konsumen' => konsumen::all(), 'booking' => booking::all()]);
@@ -30,7 +31,7 @@ class booking extends Controller
 		$booking = booking::find($id);
 		$booking->delete();
 		return redirect('booking/form');
-	}	
+	}
 
 	public function edit($id){
 		$booking = booking::where('ID_Booking', $id)->first();
@@ -46,5 +47,5 @@ class booking extends Controller
 
 		if($booking->save()) return redirect('/booking/form')->with(['active' => 'booking', 'active2' => '-', 'sukses' => 1, 'konsumen' => konsumen::all(), 'booking' => booking::all()]);
 		else return redirect('/booking/form')->with(['active' => 'booking', 'active2' => '-', 'sukses' => 0, 'konsumen' => konsumen::all(), 'booking' => booking::all()]);
-	} 
+	}
 }

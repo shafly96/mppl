@@ -27,23 +27,23 @@
 					<div class="form-group">
 						<label>Nama Sparepart</label>
 						<input type="text" name="nama_sparepart"class="form-control" placeholder="Masukan Nama Sparepart"
-						@if(isset($sparepart))value="{{$sparepart->Nama_Sparepart}}"@endif>
+						@if(isset($sparepart))value="{{$sparepart->Nama_Sparepart}}"@endif required>
 						<input type="hidden" name="_token" value="{{csrf_token()}}">
 					</div>
 					<div class="form-group">
 						<label>Kendaraan Sparepart</label>
 						<input type="text" name="kendaraan_sparepart"class="form-control" placeholder="Masukan Nama Kendaraan"
-						@if(isset($sparepart))value="{{$sparepart->Kendaraan_Sparepart}}"@endif>
+						@if(isset($sparepart))value="{{$sparepart->Kendaraan_Sparepart}}"@endif required>
 					</div>
 					<div class="form-group">
 						<label>Harga Sparepart</label>
 						<input type="number" name="harga_sparepart"class="form-control" placeholder="Masukan Harga Sparepart"
-						@if(isset($sparepart))value={{$sparepart->Harga_Sparepart}}@endif>
+						@if(isset($sparepart))value={{$sparepart->Harga_Sparepart}}@endif required>
 					</div>
 					<div class="form-group">
 						<label>Stok Sparepart</label>
 						<input type="Number" name="stok_sparepart"class="form-control" placeholder="Masukan stok Sparepart"
-						@if(isset($sparepart))value={{$sparepart->Stok_Sparepart}}@endif>
+						@if(isset($sparepart))value={{$sparepart->Stok_Sparepart}}@endif required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputFile">File input</label>

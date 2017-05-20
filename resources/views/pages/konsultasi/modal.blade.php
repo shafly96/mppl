@@ -16,7 +16,7 @@
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Judul</label>
-							<input type="text" class="form-control" name="judul" value="{{ $konsultasi->Judul }}">
+							<input type="text" class="form-control" name="judul" value="{{ $konsultasi->Judul }}" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Deskripsi Konsultasi</label>

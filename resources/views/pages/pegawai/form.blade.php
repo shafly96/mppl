@@ -29,15 +29,15 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Nama Pegawai</label>
-						<input type="text" class="form-control" name="nama" placeholder="Nama Pegawai">
+						<input type="text" class="form-control" name="nama" placeholder="Nama Pegawai" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Alamat Pegawai</label>
-						<input type="text" class="form-control" name="alamat" placeholder="Alamat Pegawai">
+						<input type="text" class="form-control" name="alamat" placeholder="Alamat Pegawai" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">No Telp Pegawai</label>
-						<input type="text" class="form-control" name="telp" placeholder="No Telp Pegawai">
+						<input type="text" class="form-control" name="telp" placeholder="No Telp Pegawai"required>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				</div><!-- /.box-body -->

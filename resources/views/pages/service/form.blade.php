@@ -20,11 +20,11 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Deskripsi Servis</label>
-						<input type="text" class="form-control" name="deskripsi" placeholder="Masukan Deskripsi">
+						<input type="text" class="form-control" name="deskripsi" placeholder="Masukan Deskripsi" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Harga Servis</label>
-						<input type="text" class="form-control" name="harga" id="uang" placeholder="Harga Servis">
+						<input type="text" class="form-control" name="harga" id="uang" placeholder="Harga Servis" required>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				</div><!-- /.box-body -->

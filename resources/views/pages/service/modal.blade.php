@@ -16,11 +16,11 @@
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Deskripsi Servis</label>
-							<input type="text" class="form-control" name="deskripsi" value="{{ $servis->Deskripsi_Servis }}">
+							<input type="text" class="form-control" name="deskripsi" value="{{ $servis->Deskripsi_Servis }}" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Harga Servis</label>
-							<input type="text" class="form-control" name="harga" id="uang" value="{{ $servis->Harga_Servis }}">
+							<input type="text" class="form-control" name="harga" id="uang" value="{{ $servis->Harga_Servis }}" required>
 						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					</div><!-- /.box-body -->

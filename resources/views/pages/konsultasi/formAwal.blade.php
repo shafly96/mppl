@@ -18,11 +18,12 @@
 				<h3 class="box-title">Form Konsultasi</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
+			@if(Auth::user()->access_type== "pelanggan")
 			<form role="form" method="post" action="store">
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Judul</label>
-						<input type="text" class="form-control" name="judul" placeholder="Judul Deskripsi">
+						<input type="text" class="form-control" name="judul" placeholder="Judul Deskripsi" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Deskripsi Konsultasi</label>
@@ -35,6 +36,7 @@
 					<button type="submit" class="btn btn-primary" id="simpan">Kirim</button>
 				</div>
 			</form>
+			@endif
 			<div class="box-body">
 				<table id="example1" class="table table-bordered table-striped dt-responsive nowrap">
 					<thead>
@@ -54,8 +56,12 @@
 							<td>{{ $n->Deskripsi_Konsultasi }}</td>
 							<td>{{ $n->Waktu_Buat }}</td>
 							<td>
+								@if(Auth::user()->access_type=="pegawai")
+
 								<a onclick="showEdit({{ $n->ID_Konsultasi }})" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#myModal">Edit</a>
 								<a onclick="deletedata({{ $n->ID_Konsultasi }})" class="btn btn-danger" id="delete">Delete</a>
+								@endif
+
 								<a href="reply/{{ $n->ID_Konsultasi }}" class="btn btn-info" id="detail">Detail</a>
 							</td>
 						</tr>
@@ -76,7 +82,7 @@
 		if (str == "") {
 			document.getElementById("myModal").innerHTML = "";
 			return;
-		} else { 
+		} else {
 			if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -96,8 +102,8 @@
 
 function deletedata(str) {
 	swal({
-		title: "Anda yakin?", 
-		text: "Ingin menghapus data ini", 
+		title: "Anda yakin?",
+		text: "Ingin menghapus data ini",
 		type: "warning",
 		showCancelButton: true,
 		closeOnConfirm: false,
@@ -110,8 +116,8 @@ function deletedata(str) {
 		})
 		.done(function(data) {
 			swal({
-				title: "Terhapus!", 
-				text: "Data berhasil terhapus!", 
+				title: "Terhapus!",
+				text: "Data berhasil terhapus!",
 				type: "success",
 				showCancelButton: false
 			}, function() {

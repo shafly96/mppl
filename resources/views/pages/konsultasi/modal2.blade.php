@@ -24,15 +24,15 @@
               <div class='col-sm-9' style="border-top:solid">
                 {{ $n->Isi_Balasan}}
               </div>
-              @endforeach 
+              @endforeach
               <div class='col-sm-9'>
-                <input class="form-control input-sm" placeholder="Response" name="response">
-              </div>      
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">                   
+                <input class="form-control input-sm" placeholder="Response" name="response" required>
+              </div>
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class='col-sm-3'>
                 <button type="submit" class="btn btn-primary" id="simpan">Send</button>
-              </div>                          
-            </div>                        
+              </div>
+            </div>
           </form>
         </div>
       </div>

@@ -25,15 +25,15 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Nama Pegawai</label>
-						<input type="text" class="form-control" name="nama" value="{{$pegawai->Nama_Pegawai}}">
+						<input type="text" class="form-control" name="nama" value="{{$pegawai->Nama_Pegawai}}" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Alamat Pegawai</label>
-						<input type="text" class="form-control" name="alamat" value="{{$pegawai->Alamat_Pegawai}}">
+						<input type="text" class="form-control" name="alamat" value="{{$pegawai->Alamat_Pegawai}}" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">No Telp Pegawai</label>
-						<input type="text" class="form-control" name="telp" value="{{$pegawai->No_Telp_Pegawai}}">
+						<input type="text" class="form-control" name="telp" value="{{$pegawai->No_Telp_Pegawai}}" required>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				</div><!-- /.box-body -->

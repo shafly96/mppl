@@ -66,6 +66,7 @@ class transaksi extends Controller
 
 
 	public function store(Request $request){
+    
     $transaksi = new transaksi;
     $transaksi->ID_Konsumen = $request->konsumen;
     $transaksi->ID_Pegawai = 1;
