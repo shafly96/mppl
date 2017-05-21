@@ -2,57 +2,6 @@
 
 @section('content')
 
-<!-- <div class="row">
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Report Bulanan</h3>
-
-
-      </div>
-      <div class="box-body">
-        <div class="row">
-          <div class="col-md-12">
-            <p class="text-center">
-              <strong>Transaksi Tahun 2014</strong>
-            </p>
-
-            <div>
-              <div class="box box-primary">
-
-                <div class="box-body" style="display: block;">
-                  <div class="chart">
-                    <canvas id="areaChart" style="height: 250px; width: 510px;" height="250" width="510"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-      <div class="box-footer">
-        <div class="row">
-          <div class="col-md-6 col-xs-6">
-            <div class="description-block border-right">
-              <h5 class="description-header">{{$ysales[0]->Pemasukan}}</h5>
-              <span class="description-text">TOTAL PEMASUKAN</span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-xs-6">
-            <div class="description-block border-right">
-              <h5 class="description-header">{{$ysales[0]->Jumlah_Transaksi}}</h5>
-              <span class="description-text">JUMLAH TRANSAKSI</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <!-- tabel -->
 <div class="row">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\jabatan;
 
-class jabatan extends Controller
+class jabatan_C extends Controller
 {
     public function showTable(){
 		return view('pages.jabatan.tabel', ['active' => 'jabatan', 'active2' => 'tabel', 'sukses' => 0, 'jabatan' => jabatan::all()]);

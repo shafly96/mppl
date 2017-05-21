@@ -9,7 +9,7 @@ use App\reply;
 use Auth;
 use DateTime;
 
-class konsultasi extends Controller
+class konsultasi_c extends Controller
 {
     public function show(){
 		return view('pages.konsultasi.formAwal', ['active' => 'konsultasi', 'active2' => 0, 'sukses' => 0, 'konsultasi' => konsultasi::all()]);

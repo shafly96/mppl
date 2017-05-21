@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\konsumen;
 use App\User;
-class konsumen extends Controller
+class konsumen_c extends Controller
 {
     public function showTable(){
 		return view('pages.konsumen.tabel', ['active' => 'konsumen', 'active2' => 'tabel', 'sukses' => 0, 'konsumen' => konsumen::all()]);

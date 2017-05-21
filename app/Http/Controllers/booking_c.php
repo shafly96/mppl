@@ -10,7 +10,7 @@ use App\servis;
 use Auth;
 use DateTime;
 
-class booking extends Controller
+class booking_c extends Controller
 {
 	public function showForm(){
 		$booking = booking::where('Status_Pengerjaan','<', 3)->get();

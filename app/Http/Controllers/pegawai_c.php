@@ -9,7 +9,7 @@ use App\jabatan;
 use App\User;
 use DB, Redirect, Validator, View, Auth;
 
-class pegawai extends Controller
+class pegawai_c extends Controller
 {
     public function showTable(){
 		return view('pages.pegawai.tabel', ['active' => 'pegawai', 'active2' => 'tabel', 'sukses' => 0, 'pegawai' => pegawai::all()]);

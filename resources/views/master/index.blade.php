@@ -25,15 +25,9 @@
 	@endif
 	<div class="col-md-12" style="text-align: center">
 
-		<p class="auto" style="margin-top: 320px; font-size: 120px;">Auto+</p>
-		<p><a class="btn btn-info" style="width: 100px; margin-right: 1%;" data-toggle="modal" data-target="#myModal">Login</a><a href="{{url('')}}/guest" class="btn btn-info" style="width: 100px;">Guest</a></p>
-		<div id="myModal" class="modal fade" role="dialog">
-			<div class="modal-dialog" style="margin-top: 200px;">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Login</h4>
-					</div>
+		<p class="auto" style="margin-top: 100px; font-size: 120px;">Auto+</p>
+		<div class="col-md-12">
+			<div style="width: 30%; margin:auto; position:relative">
 						<form role="form" class="proximaLight" action="{{url('/')}}/logs" method="POST" >
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div class="modal-body">
@@ -57,11 +51,8 @@
 							</div>
 							<div class="modal-footer">
 								<button class="btn btn-info btn-md" type="submit" name="button" style="margin:0px 10px;">Submit</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							</div>
 						</form>
-
-				</div>
 			</div>
 		</div>
 	</div>

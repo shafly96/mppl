@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\servis;
 
-class servis extends Controller
+class servis_c extends Controller
 {
 	public function showTable(){
 		return view('pages.service.tabel', ['active' => 'service', 'active2' => 'tabel', 'sukses' => 0, 'servis' => servis::all()]);

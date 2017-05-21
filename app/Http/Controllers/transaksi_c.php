@@ -12,7 +12,7 @@ use App\ktransaksi;
 use Carbon\Carbon;
 use App\servis;
 
-class transaksi extends Controller
+class transaksi_c extends Controller
 {
   public function showTable(){
       $data['active'] = 'transaksi';
