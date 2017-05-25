@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-4" style="padding: 20px;">
       <div class="thumbnail" style="padding: 10px;">
-        <img  id ="foo" style="width:100%;" src="/SIBengkel{{$storagepath}}" onError="this.onerror=null;this.src='/SIBengkel{{$defaultpath}}';" >
+        <img  id ="foo" style="width:100%;" src="/mppl2{{$storagepath}}" onError="this.onerror=null;this.src='/mppl2{{$defaultpath}}';" >
       </div>
   </div>
   <div class="col-sm-8">
