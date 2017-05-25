@@ -12,15 +12,21 @@
 			</div><!-- /.box-header -->
 			<!-- form start -->
 			<form role="form"  action="{{url('/')}}/transaksi/store" method="POST" id=transaksi>
+				@if(isset($updatedTr))
+					<input type="hidden" name="id_update" value="{{$updatedTr}}">
+				@endif
 				<div class="box-body">
 					<div class="form-group">
+						@if(empty($updatedTr))
 						<label>Pilih Konsumen</label>
 						<select class="form-control" id="kons" name="konsumen" required>
-								<option value="">--</option>
-								@foreach($konsumen as $kons)
-									<option value="{{$kons->ID_Konsumen}}">{{$kons->ID_Konsumen}} -- {{$kons->Nama_Konsumen}}</option>
-								@endforeach
+							<option value="">--</option>
+							@foreach($konsumen as $kons)
+							<option value="{{$kons->ID_Konsumen}}">{{$kons->ID_Konsumen}} -- {{$kons->Nama_Konsumen}}</option>
+							@endforeach
 						</select>
+						@endif
+
 					</div>
 					<div class="form-group">
 						<h3 class="box-header with-border " style="padding-left: 0px">Transaksi #1</h3>

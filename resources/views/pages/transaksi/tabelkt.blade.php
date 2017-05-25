@@ -11,7 +11,7 @@
 	<div class="col-xs-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h3 class="box-title">Tabel Keranjang Transaksi</h3>
+				<h3 class="box-title">Tabel Keranjang Transaksi</h3>	<br><a href="{{url('/')}}/transaksi/updatekt/{{$id}}"><div class="btn btn-info btn-xs">Update Transaksi</div></a>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 				<table id="example1" class="table table-bordered table-striped">
