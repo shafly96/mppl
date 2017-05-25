@@ -26,6 +26,7 @@ class transaksi_c extends Controller
       $data['active'] = 'transaksi';
       $data['active2'] = 'tabel';
       $data['sukses'] = 0;
+      $data['id'] = $id;
       $data['ktransaksispr'] = DB::select('select * from keranjang_transaksi,sparepart where keranjang_transaksi.ID_Sparepart = sparepart.ID_Sparepart and keranjang_transaksi.ID_Transaksi='.$id);
       $data['ktransaksiser'] = DB::select('select * from keranjang_transaksi,servis where keranjang_transaksi.ID_Servis = servis.ID_Servis and keranjang_transaksi.ID_Transaksi='.$id);
 
@@ -40,6 +41,13 @@ class transaksi_c extends Controller
 		return view('pages.transaksi.form',$data);
 	}
 
+  public function formUpKt($id){
+    $data['active'] = 'transaksi';
+    $data['active2'] = 'form';
+    $data['konsumen'] = konsumen::get();
+    $data['updatedTr'] = $id;
+		return view('pages.transaksi.form',$data);
+	}
 
   public function addType(Request $request){
     $input['id'] = $request->id;
@@ -66,12 +74,17 @@ class transaksi_c extends Controller
 
 
 	public function store(Request $request){
-    
-    $transaksi = new transaksi;
-    $transaksi->ID_Konsumen = $request->konsumen;
-    $transaksi->ID_Pegawai = 1;
-    $transaksi->Waktu_Transaksi = Carbon::now();
-    $transaksi->save();
+    if(isset($request->id_update)){
+      $transaksi = transaksi::find($request->id_update);
+      $transaksi->ID_Transaksi = $request->id_update;
+    }
+    else{
+      $transaksi = new transaksi;
+      $transaksi->ID_Konsumen = $request->konsumen;
+      $transaksi->ID_Pegawai = 1;
+      $transaksi->Waktu_Transaksi = Carbon::now();
+      $transaksi->save();
+    }
   //  dd($transaksi->ID_Transaksi);
     $counter = $request->konter;
     $harga = 0;
