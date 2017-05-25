@@ -8,6 +8,7 @@ use App\konsumen;
 use App\booking;
 use App\servis;
 use Auth;
+use DB;
 use DateTime;
 
 class booking_c extends Controller
@@ -15,6 +16,18 @@ class booking_c extends Controller
 	public function showForm(){
 		$booking = booking::where('Status_Pengerjaan','<', 3)->get();
 		return view('pages.booking_service.form', ['active' => 'booking', 'active2' => '-', 'sukses' => 0, 'konsumen' => konsumen::all(), 'booking' => $booking, 'servis' => servis::all()]);
+	}
+
+	public function showTable(){
+		$history = DB::table('transaksi')
+					->select('transaksi.id_transaksi', 'servis.deskripsi_servis', 'transaksi.waktu_transaksi')
+					->join('keranjang_transaksi', 'keranjang_transaksi.id_transaksi', '=', 'transaksi.id_transaksi')
+					->join('servis', 'keranjang_transaksi.id_servis', '=', 'servis.id_servis')
+					->where('transaksi.id_konsumen', Auth::User()->ID_Pelanggan)
+					->where('keranjang_transaksi.tipe_transaksi', 'Servis')
+					->get();
+					// dd($history);
+		return view('pages.booking_service.tabel', ['active' => 'history', 'active2' => '-', 'sukses' => 0, 'history' => $history]);
 	}
 
 	public function store(){

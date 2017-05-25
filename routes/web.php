@@ -66,6 +66,7 @@ Route::group(['prefix' => 'transaksi'], function () {
 
 Route::group(['prefix' => 'booking'], function () {
     Route::get('form', 'booking_c@showForm');
+    Route::get('tabel', 'booking_c@showTable');
     Route::get('store', 'booking_c@store');
     Route::get('delete/{id}', 'booking_c@delete');
     Route::get('edit/{id}', 'booking_c@edit');

@@ -38,6 +38,13 @@
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
+    @if(Auth::user()->access_type == "pelanggan")
+      <li class="<?php if($active=='history') echo 'active' ?>">
+        <a href="{{url('')}}/booking/tabel">
+          <i class="fa fa-list-ul"></i> <span>History Service</span>
+        </a>
+      </li>
+      @endif
       @if(Auth::user()->access_type == "pelanggan")
       <li class="<?php if($active=='pengecekan') echo 'active' ?>">
         <a href="{{url('')}}/spare-part/search">
